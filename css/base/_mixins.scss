@@ -1,0 +1,11 @@
+@mixin input ($bg:transparent, $color:inherit, $fs:20px, $lh:44px) {
+    font-family: 'Space Mono', monospace;
+    width: 100%;
+    font-weight: 700;
+    font-size: $fs;
+    line-height: $lh;
+    background-color: $bg;
+    color: $color;
+    border: 2px solid transparent;
+    outline: none;
+}

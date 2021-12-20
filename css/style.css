@@ -175,43 +175,64 @@ main form .inputs {
   gap: 48px;
 }
 main form .inputs h3 {
-  font-size: 20px;
+  font-size: 18px;
   color: #5e7a7d;
   margin-bottom: 12px;
   text-transform: capitalize;
   display: block;
   font-weight: 700;
 }
-main form .inputs .input {
+main form .inputs .input__item {
   position: relative;
 }
-main form .inputs .input input {
+main form .inputs .input__item input {
   font-family: "Space Mono", monospace;
   width: 100%;
-  background-color: #f4fafa;
-  line-height: 44px;
-  padding: 0 10px;
-  color: #00494d;
-  display: flex;
-  justify-content: flex-end;
-  border: 4px solid #f4fafa;
-  border-radius: 6px;
-  text-align: right;
-  color: #00494d;
   font-weight: 700;
   font-size: 20px;
+  line-height: 44px;
+  background-color: #f4fafa;
+  color: #00494d;
+  border: 2px solid transparent;
+  outline: none;
+  padding: 0 10px;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 6px;
+  text-align: right;
 }
-main form .inputs .input:before {
+main form .inputs .input__item input:before {
+  content: "\e900";
+}
+main form .inputs .input__item input:nth-of-type(2):before {
+  content: "\e901";
+}
+main form .inputs .input__item--error input {
+  border-color: #b47c6d;
+}
+main form .inputs .input__item--error:after {
+  font-family: "Space Mono", monospace;
+  content: "can't be zero";
+  position: absolute;
+  right: 0;
+  top: -30px;
+  color: #b47c6d;
+  font-size: 14px;
+}
+main form .inputs .input__item--active input {
+  border-color: #26c0ab;
+}
+main form .inputs .input__item:before {
   position: absolute;
   font-family: "icons";
   line-height: 44px;
   margin-left: 10px;
   color: #7f9c9f;
 }
-main form .inputs .input.bill:before {
+main form .inputs .input:first-of-type .input__item:before {
   content: "\e900";
 }
-main form .inputs .input.people:before {
+main form .inputs .input:last-of-type .input__item:before {
   content: "\e901";
 }
 main form .inputs .tip .tiplist {
@@ -220,10 +241,10 @@ main form .inputs .tip .tiplist {
   gap: 14px;
 }
 main form .inputs .tip .tiplist__item {
-  max-width: 118px;
   flex: 1 1 100px;
   display: flex;
   line-height: 48px;
+  border: 2px solid transparent;
   border-radius: 4px;
   justify-content: center;
   background-color: #00494d;
@@ -231,16 +252,116 @@ main form .inputs .tip .tiplist__item {
   font-weight: 700;
   text-transform: capitalize;
 }
+main form .inputs .tip .tiplist__item:hover {
+  cursor: pointer;
+  color: #00494d;
+  background-color: #c5e4e7;
+}
+main form .inputs .tip .tiplist__item input {
+  font-family: "Space Mono", monospace;
+  width: 100%;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 44px;
+  background-color: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  outline: none;
+  text-align: center;
+  border: none;
+  text-transform: capitalize;
+  cursor: pointer;
+}
 main form .inputs .tip .tiplist__item--custom {
   background-color: #f4fafa;
   color: #5e7a7d;
+  border-color: transparent;
+}
+main form .inputs .tip .tiplist__item--selected {
+  background-color: #26c0ab;
+  color: #00494d;
+  border-color: transparent;
 }
 main form .inputs .tip .tiplist__item--active {
-  background-color: #26c0ab;
+  background-color: transparent;
+  color: #00494d;
+  border-color: #26c0ab;
+}
+main form .inputs .tip .tiplist__item--active input {
+  padding: 6px;
+  text-align: right;
   color: #00494d;
 }
 main form .outcome {
   width: 49%;
+  background-color: #00494d;
+  border-radius: 17px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+main form .outcome .result {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  gap: 5px;
+}
+main form .outcome .result:last-of-type {
+  margin-bottom: 140px;
+}
+main form .outcome .result label {
+  width: 100%;
+  text-transform: capitalize;
+  color: #fff;
+  position: relative;
+}
+main form .outcome .result label:after {
+  content: "/ person";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 16px;
+  color: #7f9c9f;
+}
+main form .outcome .result .input {
+  position: relative;
+  display: flex;
+}
+main form .outcome .result .input input {
+  font-family: "Space Mono", monospace;
+  width: 100%;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 44px;
+  background-color: transparent;
+  color: #26c0ab;
+  border: 2px solid transparent;
+  outline: none;
+  position: relative;
+  display: flex;
+  border: none;
+  text-align: right;
+}
+main form .outcome input[type=reset] {
+  font-family: "Space Mono", monospace;
+  width: 100%;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 48px;
+  background-color: #0d686d;
+  color: #5e7a7d;
+  border: 2px solid transparent;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+main form .outcome input[type=reset]:hover {
+  background-color: #c5e4e7;
+  color: #00494d;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -2,7 +2,7 @@
 @use "./base/extends";
 @use "./base/variables" as vars;
 @use "./base/fonts" as *;
-@use "./base/mixins";
+@use "./base/mixins" as *;
 body {
     font-size: 2em;
     background-color: vars.$background;
@@ -38,7 +38,7 @@ main {
             flex-direction: column;
             gap: 48px;
             h3 {
-                font-size: 20px;
+                font-size: 18px;
                 color: vars.$header;
                 margin-bottom: 12px;
                 text-transform: capitalize;
@@ -46,34 +46,53 @@ main {
                 font-weight: 700;
             }
             .input {
-                position: relative;
-                input {
-                    font-family: 'Space Mono', monospace;
-                    width: 100%;
-                    background-color: vars.$input_bg;
-                    line-height: 44px;
-                    padding: 0 10px;
-                    color: vars.$background-dark;
-                    display: flex;
-                    justify-content: flex-end;
-                    border: 4px solid vars.$input_bg;
-                    border-radius: 6px;
-                    text-align: right;
-                    color: vars.$background-dark;
-                    font-weight: 700;
-                    font-size: 20px;
+                &__item {
+                    position: relative;
+                    input {
+                        @include input(vars.$input_bg, vars.$background-dark);
+                        padding: 0 10px;
+                        display: flex;
+                        justify-content: flex-end;
+                        border-radius: 6px;
+                        text-align: right;
+                        &:before {
+                            content: "\e900";
+                        }
+                        &:nth-of-type(2):before {
+                            content: "\e901";
+                        }
+                    }
+                    &--error {
+                        input {
+                            border-color: vars.$form_error;
+                        }
+                        &:after {
+                            font-family: 'Space Mono', monospace;
+                            content: "can't be zero";
+                            position: absolute;
+                            right: 0;
+                            top: -30px;
+                            color: vars.$form_error;
+                            font-size: 14px;
+                        }
+                    }
+                    &--active {
+                        input {
+                            border-color: vars.$bright_cyan;
+                        }
+                    }
+                    &:before {
+                        position: absolute;
+                        font-family: "icons";
+                        line-height: 44px;
+                        margin-left: 10px;
+                        color: vars.$dark_grayish_cyan_2;
+                    }
                 }
-                &:before {
-                    position: absolute;
-                    font-family: "icons";
-                    line-height: 44px;
-                    margin-left: 10px;
-                    color: vars.$dark_grayish_cyan_2;
-                }
-                &.bill:before {
+                &:first-of-type .input__item:before {
                     content: "\e900";
                 }
-                &.people:before {
+                &:last-of-type .input__item:before {
                     content: "\e901";
                 }
             }
@@ -83,23 +102,47 @@ main {
                     flex-wrap: wrap;
                     gap: 14px;
                     &__item {
-                        max-width: 118px;
                         flex: 1 1 100px;
                         display: flex;
                         line-height: 48px;
+                        border: 2px solid transparent;
                         border-radius: 4px;
                         justify-content: center;
                         background-color: vars.$background-dark;
                         color: vars.$white;
                         font-weight: 700;
                         text-transform: capitalize;
+                        &:hover {
+                            cursor: pointer;
+                            color: vars.$background-dark;
+                            background-color: vars.$background;
+                        }
+                        & input {
+                            @include input();
+                            text-align: center;
+                            border: none;
+                            text-transform: capitalize;
+                            cursor: pointer;
+                        }
                         &--custom {
                             background-color: vars.$input_bg;
                             color: vars.$header;
+                            border-color: transparent;
                         }
-                        &--active {
+                        &--selected {
                             background-color: vars.$bright_cyan;
                             color: vars.$background-dark;
+                            border-color: transparent;
+                        }
+                        &--active {
+                            background-color: transparent;
+                            color: vars.$background-dark;
+                            border-color: vars.$bright_cyan;
+                            input {
+                                padding: 6px;
+                                text-align: right;
+                                color: vars.$background-dark;
+                            }
                         }
                     }
                 }
@@ -107,6 +150,58 @@ main {
         }
         .outcome {
             width: 49%;
+            background-color: vars.$background-dark;
+            border-radius: 17px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            .result {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 60px;
+                gap: 5px;
+                &:last-of-type {
+                    margin-bottom: 140px;
+                }
+                label {
+                    width: 100%;
+                    text-transform: capitalize;
+                    color: vars.$white;
+                    position: relative;
+                    &:after {
+                        content: "/ person";
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        font-size: 16px;
+                        color: vars.$dark_grayish_cyan_2;
+                    }
+                }
+                .input {
+                    position: relative;
+                    display: flex;
+                    input {
+                        @include input($color:vars.$bright_cyan, $fs:40px);
+                        position: relative;
+                        display: flex;
+                        border: none;
+                        text-align: right;
+                    }
+                }
+            }
+            input[type="reset"] {
+                @include input(#0d686d, vars.$header, $lh:48px);
+                display: flex;
+                justify-content: center;
+                border: none;
+                border-radius: 5px;
+                text-transform: uppercase;
+                &:hover {
+                    background-color: vars.$background;
+                    color: vars.$background-dark;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

@@ -15,10 +15,10 @@
         </header>
         <form action="POST">
             <section class="inputs">
-                <div class="bill">
+                <div class="input">
                     <h3 for="bill">bill</h3>
-                    <div class="input bill">
-                        <input type="text" name="bill" id="bill">
+                    <div class="input__item ">
+                        <input type="text" name="bill" id="bill" value="0">
                     </div>
                 </div>
                 <div class="tip">
@@ -26,29 +26,35 @@
                     <ul id="tip" name="tip" class="tiplist">
                         <li class="tiplist__item" id="tip_amount" name="tip_amount">5%</li>
                         <li class="tiplist__item" id="tip_amount" name="tip_amount">10%</li>
-                        <li class="tiplist__item tiplist__item--active" id="tip_amount" name="tip_amount">15%</li>
+                        <li class="tiplist__item tiplist__item--selected" id="tip_amount" name="tip_amount">15%</li>
                         <li class="tiplist__item" id="tip_amount" name="tip_amount">25%</li>
                         <li class="tiplist__item" id="tip_amount" name="tip_amount">50%</li>
-                        <li class="tiplist__item tiplist__item--custom" id="tip_amount" name="tip_amount">custom</li>
+                        <li class="tiplist__item tiplist__item--custom" id="tip_amount" name="tip_amount">
+                            <input type="text" value="custom">
+                        </li>
                     </ul>
                 </div>
-                <div class="people">
+                <div class="input">
                     <h3>number of people</h3>
-                    <div class="input people">
-                        <input type="text" name="people" id="people" class="people">
+                    <div class="input__item">
+                        <input type="text" name="people" id="people" value="0">
                     </div>
                 </div>
             </section>
             <section class="outcome">
-                <div class="calculate">
+                <div class="result">
                     <label for="tip_amount_pp">tip amount</label>
-                    <input type="text" id="tip_amount_pp" name="tip_amount_pp" readonly>
+                    <div class="input">
+                        <input type="text" id="tip_amount_pp" name="tip_amount_pp" value="$0.00" readonly>
+                    </div>
                 </div>
-                <div class="input__result">
+                <div class="result">
                     <label for="tip_total_pp">total</label>
-                    <input type="text" id="tip_total_pp" name="tip_total_pp" readonly>
+                    <div class="input">
+                        <input type="text" id="tip_total_pp" name="tip_total_pp" value="$0.00" readonly>
+                    </div>
                 </div>
-                <input type="reset" value="reset">
+                <input type="reset" value="reset" class="reset">
             </section>
         </form>
     </main>
