@@ -3,4 +3,81 @@
 @use "./base/variables" as vars;
 @use "./base/fonts" as *;
 @use "./base/mixins";
-@use "./icons/style";
+body {
+    font-size: 2em;
+    background-color: vars.$background;
+    font-family: 'Space Mono', monospace;
+}
+main {
+    margin: 0 auto;
+    max-width: 920px;
+    header {
+        .imgholder {
+            padding-top: 162px;
+            margin-bottom: 86px;
+            &:after {
+                display: flex;
+                justify-content: center;
+                font-family: "icons";
+                content: "\e902";
+                font-size: 52px;
+                font-weight: 500;
+                color: vars.$background-dark;
+            }
+        }
+    }
+    form {
+        padding: 50px;
+        display: flex;
+        gap: 50px;
+        justify-content: space-between;
+        background-color: #fff;
+        border-radius: 24px;
+        .inputs {
+            width: 41.3%;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            h3 {
+                font-size: 20px;
+                color: vars.$dark_grayish_cyan_1;
+                margin-bottom: 12px;
+                text-transform: capitalize;
+                display: block;
+                font-weight: 700;
+            }
+            .input {
+                position: relative;
+                input {
+                    font-family: 'Space Mono', monospace;
+                    width: 100%;
+                    background-color: vars.$input_bg;
+                    line-height: 44px;
+                    padding: 0 10px;
+                    color: vars.$background-dark;
+                    display: flex;
+                    justify-content: flex-end;
+                    border: 4px solid vars.$input_bg;
+                    border-radius: 6px;
+                    text-align: right;
+                    color: vars.$background-dark;
+                    font-weight: 700;
+                    font-size: 20px;
+                }
+                &:before {
+                    position: absolute;
+                    font-family: "icons";
+                    content: "\e900";
+                    line-height: 44px;
+                    margin-left: 10px;
+                    color: vars.$dark_grayish_cyan_2;
+                }
+            }
+            .outcome {
+                background-color: vars.$background-dark;
+                width: 44.8%;
+                border-radius: 16px;
+            }
+        }
+    }
+}
