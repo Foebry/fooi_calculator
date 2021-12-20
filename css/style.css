@@ -310,7 +310,7 @@ main form .outcome .result:last-of-type {
   margin-bottom: 140px;
 }
 main form .outcome .result label {
-  width: 100%;
+  width: 55%;
   text-transform: capitalize;
   color: #fff;
   position: relative;
@@ -326,6 +326,7 @@ main form .outcome .result label:after {
 main form .outcome .result .input {
   position: relative;
   display: flex;
+  width: 45%;
 }
 main form .outcome .result .input input {
   font-family: "Space Mono", monospace;
@@ -362,6 +363,55 @@ main form .outcome input[type=reset]:hover {
   background-color: #c5e4e7;
   color: #00494d;
   cursor: pointer;
+}
+
+@media screen and (max-width: 920px) {
+  main header .imgholder {
+    padding-top: 50px;
+    margin-bottom: 40px;
+  }
+  main form {
+    margin: 0 auto;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  main form .inputs {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  main form .inputs .tip .tiplist__item {
+    flex: 1 1 200px;
+  }
+  main form .outcome {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 640px) {
+  main form {
+    width: 90%;
+  }
+  main form .inputs .tip .tiplist__item {
+    flex: 1 1 40%;
+  }
+}
+@media screen and (max-width: 555px) {
+  main form {
+    padding: 50px 30px;
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  main form .outcome {
+    padding: 40px 20px;
+  }
+  main form .outcome .result {
+    gap: 0;
+  }
+  main form .outcome .result .input input {
+    font-size: 35px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
