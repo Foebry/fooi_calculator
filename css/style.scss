@@ -49,7 +49,7 @@ main {
                 &__item {
                     position: relative;
                     input {
-                        @include input(vars.$input_bg, vars.$background-dark);
+                        @include input(vars.$input_bg, vars.$dark_grayish_cyan_2);
                         padding: 0 10px;
                         display: flex;
                         justify-content: flex-end;
@@ -57,14 +57,17 @@ main {
                         text-align: right;
                         &:before {
                             content: "\e900";
+                            color: vars.$dark_grayish_cyan_2;
                         }
                         &:nth-of-type(2):before {
                             content: "\e901";
+                            color: vars.$dark_grayish_cyan_2;
                         }
                     }
                     &--error {
                         input {
                             border-color: vars.$form_error;
+                            color: vars.$background-dark;
                         }
                         &:after {
                             font-family: 'Space Mono', monospace;
@@ -79,6 +82,7 @@ main {
                     &--active {
                         input {
                             border-color: vars.$bright_cyan;
+                            color: vars.$background-dark;
                         }
                     }
                     &:before {
