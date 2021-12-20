@@ -164,13 +164,12 @@ main header .imgholder:after {
 main form {
   padding: 50px;
   display: flex;
-  gap: 50px;
   justify-content: space-between;
   background-color: #fff;
   border-radius: 24px;
 }
 main form .inputs {
-  width: 41.3%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -205,15 +204,43 @@ main form .inputs .input input {
 main form .inputs .input:before {
   position: absolute;
   font-family: "icons";
-  content: "\e900";
   line-height: 44px;
   margin-left: 10px;
   color: #7f9c9f;
 }
-main form .inputs .outcome {
+main form .inputs .input.bill:before {
+  content: "\e900";
+}
+main form .inputs .input.people:before {
+  content: "\e901";
+}
+main form .inputs .tip .tiplist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+main form .inputs .tip .tiplist__item {
+  max-width: 118px;
+  flex: 1 1 100px;
+  display: flex;
+  line-height: 48px;
+  border-radius: 4px;
+  justify-content: center;
   background-color: #00494d;
-  width: 44.8%;
-  border-radius: 16px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+main form .inputs .tip .tiplist__item--custom {
+  background-color: #f4fafa;
+  color: #5e7a7d;
+}
+main form .inputs .tip .tiplist__item--active {
+  background-color: #26c0ab;
+  color: #00494d;
+}
+main form .outcome {
+  width: 49%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -29,18 +29,17 @@ main {
     form {
         padding: 50px;
         display: flex;
-        gap: 50px;
         justify-content: space-between;
         background-color: #fff;
         border-radius: 24px;
         .inputs {
-            width: 41.3%;
+            width: 45%;
             display: flex;
             flex-direction: column;
             gap: 48px;
             h3 {
                 font-size: 20px;
-                color: vars.$dark_grayish_cyan_1;
+                color: vars.$header;
                 margin-bottom: 12px;
                 text-transform: capitalize;
                 display: block;
@@ -67,17 +66,47 @@ main {
                 &:before {
                     position: absolute;
                     font-family: "icons";
-                    content: "\e900";
                     line-height: 44px;
                     margin-left: 10px;
                     color: vars.$dark_grayish_cyan_2;
                 }
+                &.bill:before {
+                    content: "\e900";
+                }
+                &.people:before {
+                    content: "\e901";
+                }
             }
-            .outcome {
-                background-color: vars.$background-dark;
-                width: 44.8%;
-                border-radius: 16px;
+            .tip {
+                .tiplist {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 14px;
+                    &__item {
+                        max-width: 118px;
+                        flex: 1 1 100px;
+                        display: flex;
+                        line-height: 48px;
+                        border-radius: 4px;
+                        justify-content: center;
+                        background-color: vars.$background-dark;
+                        color: vars.$white;
+                        font-weight: 700;
+                        text-transform: capitalize;
+                        &--custom {
+                            background-color: vars.$input_bg;
+                            color: vars.$header;
+                        }
+                        &--active {
+                            background-color: vars.$bright_cyan;
+                            color: vars.$background-dark;
+                        }
+                    }
+                }
             }
+        }
+        .outcome {
+            width: 49%;
         }
     }
 }

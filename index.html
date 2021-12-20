@@ -17,7 +17,7 @@
             <section class="inputs">
                 <div class="bill">
                     <h3 for="bill">bill</h3>
-                    <div class="input">
+                    <div class="input bill">
                         <input type="text" name="bill" id="bill">
                     </div>
                 </div>
@@ -26,15 +26,17 @@
                     <ul id="tip" name="tip" class="tiplist">
                         <li class="tiplist__item" id="tip_amount" name="tip_amount">5%</li>
                         <li class="tiplist__item" id="tip_amount" name="tip_amount">10%</li>
-                        <li class="tiplist__item" id="tip_amount" name="tip_amount">15%</li>
+                        <li class="tiplist__item tiplist__item--active" id="tip_amount" name="tip_amount">15%</li>
                         <li class="tiplist__item" id="tip_amount" name="tip_amount">25%</li>
                         <li class="tiplist__item" id="tip_amount" name="tip_amount">50%</li>
-                        <li class="tiplist__item" id="tip_amount" name="tip_amount">custom</li>
+                        <li class="tiplist__item tiplist__item--custom" id="tip_amount" name="tip_amount">custom</li>
                     </ul>
                 </div>
                 <div class="people">
                     <h3>number of people</h3>
-                    <input type="text" name="people" id="people">
+                    <div class="input people">
+                        <input type="text" name="people" id="people" class="people">
+                    </div>
                 </div>
             </section>
             <section class="outcome">
